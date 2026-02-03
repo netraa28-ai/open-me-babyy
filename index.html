@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine?</title>
+  <style>
+    body {
+      background: linear-gradient(#ffd6e8, #ffeaf4);
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 120px;
+      overflow: hidden;
+    }
+    h1 {
+      color: #b30059;
+      font-size: 42px;
+    }
+    h2 {
+      color: #cc3366;
+    }
+    button {
+      background: #ff6f91;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 30px;
+      color: white;
+      cursor: pointer;
+      margin: 20px;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      background: #ff4f79;
+    }
+    #noBtn {
+      position: absolute;
+    }
+    #yesBtn {
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Rishit 💕</h1>
+  <h2>Will you please be my Valentine, Russo? 💌</h2>
+
+  <button id="yesBtn" onclick="location.href='yes.html'">Yess 💖</button>
+  <button id="noBtn" onmouseover="noClicked()">No 😏</button>
+
+  <script>
+    let yesScale = 1;
+
+    function noClicked() {
+      // move NO button
+      const x = Math.random() * 80;
+      const y = Math.random() * 80;
+      const noBtn = document.getElementById("noBtn");
+      noBtn.style.left = x + "vw";
+      noBtn.style.top = y + "vh";
+
+      // grow YES button
+      yesScale += 0.3;
+      const yesBtn = document.getElementById("yesBtn");
+      yesBtn.style.transform = `scale(${yesScale})`;
+
+      // final takeover
+      if (yesScale >= 3) {
+        yesBtn.style.position = "fixed";
+        yesBtn.style.top = "0";
+        yesBtn.style.left = "0";
+        yesBtn.style.width = "100vw";
+        yesBtn.style.height = "100vh";
+        yesBtn.style.fontSize = "48px";
+        yesBtn.innerHTML = "YESS 💖 CLICK ME";
+      }
+    }
+  </script>
+
+</body>
+</html>
